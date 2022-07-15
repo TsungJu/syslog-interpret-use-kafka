@@ -16,13 +16,15 @@ $ `bash start-zookeeper-kafka-connect-mongodb.sh`
 
 $ ``
 
-## 2. Run kafka streams:
-
-$ `mvn exec:java -Dexec.mainClass=myapps.LineSplit`
-
-## 3. create local file source connector and mongodb sink connector:
+## 2. create local file source connector:
 
 $ `bash ./connect-distributed-connector-bin/create-local-file-source-connector.sh`
+
+## 3. Run kafka streams:
+
+$ `java -cp syslog.realtime.interpret.kafka.streams.messages-0.0.1-SNAPSHOT.jar syslog.realtime.interpret.kafka.streams.messages.LineSplit`
+
+## 4. create mongodb sink connector:
 
 $ `bash ./connect-dirtributed-connector-bin/create-mongodb-sink-connector.sh`
 
@@ -32,3 +34,14 @@ Address: localhost
 Port: 27017
 
 ![mongodb checkout](pictures/mongodb_interpreted_message_data.JPG)
+
+### kafka GUI tool: kafdrop
+
+$ `docker run -it --rm -p 9000:9000 --network host -e KAFKA_BROKERCONNECT=localhost:9092 -e JVM_OPTS="-Xms32M -Xmx64M" -e SERVER_SERVLET_CONTEXTPATH="/" obsidiandynamics/kafdrop:latest`
+
+### OR kafka manager:
+
+$ `docker run -it --rm  --network host -e ZK_HOSTS="localhost:2181" -e APPLICATION_SECRET=letmein sheepkiller/kafka-manager`
+
+access with browser at http://127.0.0.1:9000
+

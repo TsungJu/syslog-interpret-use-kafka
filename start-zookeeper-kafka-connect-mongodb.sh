@@ -7,7 +7,9 @@ nohup ./bin/zookeeper-server-start.sh config/zookeeper.properties > /dev/null 2>
 nohup ./bin/kafka-server-start.sh config/server.properties > /dev/null 2>&1 &
 
 # Create topic
-./bin/kafka-topics.sh --create --zookeeper localhost:2181 --replication-factor 1 --partitions 1 --topic test
+./bin/kafka-topics.sh --create --zookeeper localhost:2181 --replication-factor 1 --partitions 1 --topic messages_log_raw
+
+./bin/kafka-topics.sh --create --zookeeper localhost:2181 --replication-factor 1 --partitions 1 --topic messages_log_interpreted
 
 # Start connect in the backgroud
 nohup ./bin/connect-distributed.sh config/connect-distributed.properties > /dev/null 2>&1 &
