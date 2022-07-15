@@ -6,6 +6,8 @@ This project uses kafka streams to realtime interpret syslog, and insert to mong
 
 ## How to use ?
 
+## 0. Download and unpack kafka_2.13-2.8.0.tgz to get zookeeper, kafka server, connect start shell script and config file.
+
 ## 1. Run zookeeper, kafka server, connect, mongoDB, and create topic:
 
 ### Monolithic:
