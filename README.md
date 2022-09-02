@@ -14,7 +14,7 @@ This project uses kafka streams to realtime interpret syslog, and insert to mong
 
 $ `bash start-zookeeper-kafka-connect-mongodb.sh`
 
-### Container:
+### Containerized:
 
 $ `docker-compose up -f docker/docker-compose.yml`
 
@@ -24,7 +24,7 @@ $ `docker-compose up -f docker/docker-compose.yml`
 
 $ `bash ./syslog-messages/connect-distributed-connector-bin/create-local-file-source-connector.sh`
 
-### Container:
+### Containerized:
 
 $ `bash ./docker/syslog-messages/messages-file-source/start-messages-file-source-connector.sh`
 
@@ -34,7 +34,7 @@ $ `bash ./docker/syslog-messages/messages-file-source/start-messages-file-source
 
 $ `java -cp syslog.realtime.interpret.kafka.streams.messages-0.0.1-SNAPSHOT.jar syslog.realtime.interpret.kafka.streams.messages.LineSplit`
 
-### Container:
+### Containerized:
 
 $ `bash ./docker/syslog-messages/kafka.streams.messages/start-kafka-streams-messages.sh`
 
@@ -44,7 +44,7 @@ $ `bash ./docker/syslog-messages/kafka.streams.messages/start-kafka-streams-mess
 
 $ `bash ./syslog-messages/connect-dirtributed-connector-bin/create-mongodb-sink-connector.sh`
 
-### Container:
+### Containerized:
 
 $ `bash ./docker/syslog-messages/messages-mongodb-sink/start-messages-mongodb-sink-connector.sh`
 

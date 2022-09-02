@@ -1,6 +1,0 @@
-syslog\realtime\interpret\kafka\streams\messages\Pipe.class
-syslog\realtime\interpret\kafka\streams\messages\Pipe$1.class
-syslog\realtime\interpret\kafka\streams\messages\LineSplit$1.class
-syslog\realtime\interpret\kafka\streams\messages\LineSplit.class
-syslog\realtime\interpret\kafka\streams\messages\WordCount.class
-syslog\realtime\interpret\kafka\streams\messages\WordCount$1.class
