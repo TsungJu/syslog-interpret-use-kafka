@@ -16,26 +16,44 @@ $ `bash start-zookeeper-kafka-connect-mongodb.sh`
 
 ### Container:
 
-$ ``
+$ `docker-compose up -f docker/docker-compose.yml`
 
 ## 2. create local file source connector:
 
-$ `bash ./connect-distributed-connector-bin/create-local-file-source-connector.sh`
+### Monolithic:
+
+$ `bash ./syslog-messages/connect-distributed-connector-bin/create-local-file-source-connector.sh`
+
+### Container:
+
+$ `bash ./docker/syslog-messages/messages-file-source/start-messages-file-source-connector.sh`
 
 ## 3. Run kafka streams:
 
+### Monolithic:
+
 $ `java -cp syslog.realtime.interpret.kafka.streams.messages-0.0.1-SNAPSHOT.jar syslog.realtime.interpret.kafka.streams.messages.LineSplit`
+
+### Container:
+
+$ `bash ./docker/syslog-messages/kafka.streams.messages/start-kafka-streams-messages.sh`
 
 ## 4. create mongodb sink connector:
 
-$ `bash ./connect-dirtributed-connector-bin/create-mongodb-sink-connector.sh`
+### Monolithic:
+
+$ `bash ./syslog-messages/connect-dirtributed-connector-bin/create-mongodb-sink-connector.sh`
+
+### Container:
+
+$ `bash ./docker/syslog-messages/messages-mongodb-sink/start-messages-mongodb-sink-connector.sh`
 
 ### Login mongoDB checkout:
 
 Address: localhost
 Port: 27017
 
-![mongodb checkout](pictures/mongodb_interpreted_message_data.JPG)
+![mongodb checkout](static/mongodb_interpreted_message_data.JPG)
 
 ### kafka GUI tool: kafdrop
 
